@@ -16,13 +16,13 @@ module Shooter
   end
 
   def persist(thumb=false)
-    @i = Dir["*.jpg"].length()
+    # i = Dir["*.jpg"].length()
     @images.each_with_index do |e, i|
-      t = e.minify
-      e.write "#{shot_prefix}_#{@i}.jpg"
+      e.write "#{shot_prefix}_#{i}.jpg"
       if thumb?
-        e.minify.write "#{shot_prefix}_thumb_#{@i}.jpg"
+        e.minify.write "#{shot_prefix}_thumb_#{i}.jpg"
       end
+      i+=1
     end
   end
 
