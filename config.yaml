@@ -1,0 +1,4 @@
+config:
+
+  script_name: 'shooter.rb'
+  shot_prefix: 'shot'
