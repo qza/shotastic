@@ -10,4 +10,4 @@ Finally!
                                          
                                          
                                                                                   
-Listen for input on any x-window and go your thing !!!!
+Listen for input on any x-window and do your thing.
