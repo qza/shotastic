@@ -1,13 +1,13 @@
-require "test/unit"
-require '../shooter.rb'
-require "./test_helper"
+require 'test/unit'
+require './shooter.rb'
+require './config_helper'
 
 class TestShooter < Test::Unit::TestCase
-include Shooter
+include Shooter, ConfigHelper
   
-  def test_shooter_bootup
+  def test_images_init
     bootup_shooter
-    assert(current_shot_prefix == TestHelper.get_shot_prefix, "Shooter should load file prefix")
+    assert_not_nil(images, 'Images should be initialized.')
   end
-  
+
 end
