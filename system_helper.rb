@@ -10,5 +10,3 @@ module SystemHelper
   end
   
 end
-
-SystemHelper.listen_inputs
