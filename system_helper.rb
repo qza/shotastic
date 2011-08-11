@@ -1,12 +1,26 @@
 module SystemHelper
   
-  def self.listen_inputs
-    fhi = IO.popen('xev | grep -A2 --line-buffered "^KeyRelease"')
-    fhi.each_line(sep=$/) {|line|
+  def self.listen_inputs(windowid=nil)
+    if !windowid.nil?
+      comm = "xev -id #{windowid} | grep -A2 --line-buffered \"^KeyRelease\""
+    else
+      comm = 'xev | grep -A2 --line-buffered "^KeyRelease"'
+    end
+    fhi = IO.popen(comm)
+    fhi.each_line(sep=$/) do |line|
       if line =~ /\(keysym\ (.*?),\ (.*)\)/
-        puts $2
+        if block_given?
+          yield $2
+        else
+          puts "PRESSED #{$2}"
+        end
       end
-    }
+    end
   end
-  
+
+end
+
+
+SystemHelper.listen_inputs() do |f|
+  puts "PRESSED ::: #{f}"
 end
