@@ -17,6 +17,10 @@ module SystemHelper
       end
     end
   end
+  
+  def activate_window(windowid=nil)
+    system('xdotool search --class firefox windowactivate')
+  end
 
 end
 
