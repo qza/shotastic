@@ -8,7 +8,7 @@ module Shooter
   end
 
   def capture(id='root', quality='75')
-    img = Image.capture {
+    img = Magick::Image.capture {
       self.filename = id
       self.quality = quality
     }
