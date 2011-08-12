@@ -9,7 +9,7 @@ class TestBasics < Test::Unit::TestCase
   end
 
   def test_script_exist
-    assert(File.exists?("./#{script_name}"), "Create main project cript #{script_name}")
+    assert(File.exists?("./#{script_name}"), "Create main project script #{script_name}")
   end
 
   def test_module_defined
